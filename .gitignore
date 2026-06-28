@@ -1,0 +1,6 @@
+.env
+survey_form.html
+*.log
+database/*.sqlite
+database/*.sqlite-wal
+database/*.sqlite-shm

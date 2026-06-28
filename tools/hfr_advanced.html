@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, user-scalable=0'>
+    <meta content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital" name="description">
+    <meta content="Facility near me" name="hfr">
+    <meta name="keywords" content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital"/>
+        <!-- Title -->
+    <title>HFR-PORTAL</title>
+    <!--Favicon -->
+    <link rel="icon" href="/web/favicon.ico" type="image/x-icon"/>
+    
+<link href="/web/assets/25b17d1a/css/bootstrap.css" rel="stylesheet">
+<link href="/web/assets/64e73924/css/select2.min.css" rel="stylesheet">
+<link href="/web/assets/ef002332/css/select2-addl.min.css" rel="stylesheet">
+<link href="/web/assets/ef002332/css/select2-krajee-bs4.min.css" rel="stylesheet">
+<link href="/web/assets/1c833aeb/css/kv-widgets.min.css" rel="stylesheet">
+<link href="/web/assets/5122a91/css/dependent-dropdown.min.css" rel="stylesheet">
+<link href="/web/assets/889b42b1/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/style.css" rel="stylesheet">
+<link href="/web/portal/css/icons.css" rel="stylesheet">
+<link href="/web/portal/css/animated.css" rel="stylesheet">
+<link href="/web/portal/css/newsticker.css" rel="stylesheet">
+<link href="/web/portal/css/boxed.css" rel="stylesheet">
+<link href="/web/portal/css/custom.css" rel="stylesheet">
+<link href="/web/portal/css/viewinmap.css" rel="stylesheet">
+<script>window.s2options_608c74da = {"themeCss":".select2-container--krajee-bs4","sizeCss":"","doReset":true,"doToggle":true,"doOrder":false};
+window.select2_d811419f = {"theme":"krajee-bs4","width":"auto","placeholder":"--Select--","language":"en-US"};
+
+window.depdrop_49bad51a = {"depends":["region"],"placeholder":"--Select--","url":"\/web\/index.php?r=portal%2Fdistricts"};
+
+window.depdrop_1246ab66 = {"depends":["district"],"placeholder":"--Select--","url":"\/web\/index.php?r=portal%2Fcouncils"};
+
+window.depdrop_d5af799b = {"depends":["council"],"placeholder":"--Select--","url":"\/web\/index.php?r=portal%2Fwards"};
+
+window.depdrop_d3525c5f = {"depends":["ward"],"placeholder":"--Select--","url":"\/web\/index.php?r=portal%2Fvillages"};
+
+window.s2options_e9bc2761 = {"themeCss":".select2-container--krajee-bs4","sizeCss":"","doReset":true,"doToggle":false,"doOrder":false};
+window.depdrop_d0916d56 = {"depends":["ownership_category"],"placeholder":"--Select--","url":"\/web\/index.php?r=portal%2Fownership"};
+
+window.depdrop_2b83d5cb = {"depends":["ownership_authority"],"prompt":"--Select--","url":"\/web\/index.php?r=portal%2Fdenomination"};
+
+window.depdrop_41fa7c63 = {"depends":["Services_category"],"url":"\/web\/index.php?r=portal%2Fservices-list"};
+</script></head>
+<body class="light-mode">
+<div class="page">
+    <div class="page-main">
+        <div class="horizontal-main hor-menu clearfix">
+            <!-- <div class="app-header header top-header"> c4d2d7-->
+            <div class="container">
+                <div class="d-flex">
+                    <div class="col-12  px-0" style="background-color: #fff;">
+                        <a id="horizontal-nav" class="animated-arrow hor-toggle"></a>
+                        <img src="/web/images/logo.png" width="100%" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <!-- Horizontal-menu -->
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list ">
+                        <li aria-haspopup="false">
+                            <a class="sub-icon sub-icon" href="/web/index.php?r=portal%2Findex">
+									<i class="pe-7s-home" data-toggle="tooltip" title="pe-7s-home"></i>	Home</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon active" href="/web/index.php?r=portal%2Fadvanced-search">
+							<i class="pe-7s-menu" data-toggle="tooltip" title="pe-7s-menu"></i>
+								Health Facilities</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffaq">
+								<i class="zmdi zmdi-collection-text" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								FAQs</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffeedback">
+								<i class="fa fa-comment" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								Feed Back</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=site%2Findex" target="_blank">Facility Management</a>                        </li>
+
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=portal%2Fdownloadfacilities" target="_blank">Download Operating Facilities</a>                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="app-content page-body">
+            <div class="container">
+                <div class="mt-8">
+                    <script>
+    function loadSearch() {
+        var datas = $('form').serialize();
+        var medium_spinner = '<div style="font-size: 18px;"><span class="fa fa-spinner fa-2x fa-spin"></span> Please Wait ...</div>';
+        $('#display_message_data').html(medium_spinner);
+        $.ajax({
+            type: 'get',
+            url: "/web/index.php?r=portal%2Fhealth-facility-list",
+            data: datas,
+            success: function (data) {
+                $('#display_message_data').show();
+                $('#display_message_data').html(data);
+                return false
+            }
+
+        });
+        return false;
+    }
+
+    function loadView(data) {
+
+        var url = data.value;
+        var medium_spinner = '<div style="font-size: 18px;"><span class="fa fa-spinner fa-2x fa-spin"></span> Please Wait ...</div>';
+        $('#display_message_data').html(medium_spinner);
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function (data) {
+                $('#display_message_data').show();
+                $('#display_message_data').html(data);
+                return false
+            }
+
+        });
+        return false;
+    }
+
+    function resetData() {
+        $("#advance_id").get(0).reset();
+        document.getElementById("region").value = 14;
+    }
+
+    function showadvancesearch(data) {
+        var status = data.value;
+        if (status == 1) {
+            $('#formADIVOearch_id').show();
+            $("#aDIVOearch").attr('value', 2);
+        } else {
+            $('#formADIVOearch_id').hide();
+            $("#aDIVOearch").attr('value', 1);
+        }
+
+    }
+</script>
+
+<form id="advance_id" action="/web/index.php?r=portal/advanced-search" method="post"><br/>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Search Facility</h3>
+    </div>
+    <div class=" card-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label class="sr-only">Search by </label>
+                    <select class="form-control" data-placeholder="Choose" name="search_by">
+                        <option value="fac_name">Facility Name</option>
+                        <option value="fac_code">Facility Code</option>
+                        <option value="service">Service</option>
+
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group footable-filtering-search">
+                    <label class="sr-only">Search</label>
+                    <div class="input-group">
+                        <input type="text" name="facility_name" class="form-control"
+                               placeholder="Advanced Search">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn" id="homeSearch" onclick='loadSearch()'>
+                                <svg class="header-icon search-icon" x="1008" y="1248" viewBox="0 0 24 24" height="100%"
+                                     width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-3">
+
+                <div class="item form-group">
+                    <button type="button" class="btn" id="aDIVOearch" name="search_data" value="1"
+                            onclick="showadvancesearch(this)">
+                        Advanced Search                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="formADIVOearch_id" style="display:none">
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-region">
+<label class="control-label" for="region">Region</label>
+<span id="parent-s2-togall-region" style="display:none"><span id="s2-togall-region" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-region">&nbsp;</div><input type="hidden" name="region" value=""><select id="region" class="form-control" name="region[]" multiple size="4" pluginOptions='{"allowClear":true}' data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+<option value="TZ.CL.DO">Dodoma Region</option>
+<option value="TZ.CL.SD">Singida Region</option>
+<option value="TZ.ET.DS">Dar es Salaam Region</option>
+<option value="TZ.ET.MO">Morogoro Region</option>
+<option value="TZ.ET.PW">Pwani Region</option>
+<option value="TZ.LK.GE">Geita Region</option>
+<option value="TZ.LK.KR">Kagera Region</option>
+<option value="TZ.LK.MA">Mara Region</option>
+<option value="TZ.LK.MZ">Mwanza Region</option>
+<option value="TZ.NT.AS">Arusha Region</option>
+<option value="TZ.NT.KL">Kilimanjaro Region</option>
+<option value="TZ.NT.MY">Manyara Region</option>
+<option value="TZ.NT.TN">Tanga Region</option>
+<option value="TZ.SH.IG">Iringa Region</option>
+<option value="TZ.SH.KA">Katavi Region</option>
+<option value="TZ.SH.MB">Mbeya Region</option>
+<option value="TZ.SH.NJ">Njombe Region</option>
+<option value="TZ.SH.RU">Rukwa Region</option>
+<option value="TZ.SH.SO">Songwe Region</option>
+<option value="TZ.ST.LI">Lindi Region</option>
+<option value="TZ.ST.MT">Mtwara Region</option>
+<option value="TZ.ST.RV">Ruvuma Region</option>
+<option value="TZ.WT.KM">Kigoma Region</option>
+<option value="TZ.WT.SI">Simiyu Region</option>
+<option value="TZ.WT.SY">Shinyanga Region</option>
+<option value="TZ.WT.TB">Tabora Region</option>
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-district">
+<label class="control-label" for="district">District</label>
+<span id="parent-s2-togall-district" style="display:none"><span id="s2-togall-district" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-district">&nbsp;</div><input type="hidden" name="district" value=""><select id="district" class="form-control" name="district[]" multiple size="4" data-krajee-depdrop="depdrop_49bad51a" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-council">
+<label class="control-label" for="council">Council</label>
+<span id="parent-s2-togall-council" style="display:none"><span id="s2-togall-council" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-council">&nbsp;</div><input type="hidden" name="council" value=""><select id="council" class="form-control" name="council[]" multiple size="4" data-krajee-depdrop="depdrop_1246ab66" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-ward">
+<label class="control-label" for="ward">Ward</label>
+<span id="parent-s2-togall-ward" style="display:none"><span id="s2-togall-ward" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-ward">&nbsp;</div><input type="hidden" name="ward" value=""><select id="ward" class="form-control" name="ward[]" multiple size="4" data-krajee-depdrop="depdrop_d5af799b" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-village_mtaa">
+<label class="control-label" for="village_mtaa">Village/Mtaa</label>
+<span id="parent-s2-togall-village_mtaa" style="display:none"><span id="s2-togall-village_mtaa" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-village_mtaa">&nbsp;</div><input type="hidden" name="village_mtaa" value=""><select id="village_mtaa" class="form-control" name="village_mtaa[]" multiple size="4" data-krajee-depdrop="depdrop_d3525c5f" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-facility_type">
+<label class="control-label" for="facility_type">Facility Type</label>
+<span id="parent-s2-togall-facility_type" style="display:none"><span id="s2-togall-facility_type" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-facility_type">&nbsp;</div><input type="hidden" name="facility_type" value=""><select id="facility_type" class="form-control" name="facility_type[]" multiple size="4" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+<option value="1">Dispensary</option>
+<option value="2">Health Center</option>
+<option value="3">Mobile Medical Clinic</option>
+<option value="4">PolyClinic</option>
+<option value="5">Super Specialised Clinic</option>
+<option value="6">Specialised Clinic</option>
+<option value="7">Medical Clinic</option>
+<option value="8">Eye Clinic</option>
+<option value="9">Basic Dental Clinic</option>
+<option value="10">Radiology Services Center</option>
+<option value="11">Physiotherapy Clinic</option>
+<option value="12">Ambulance and Air Services</option>
+<option value="13">Ship Services</option>
+<option value="14">Optometry Clinic</option>
+<option value="16">Specimen Collection Point</option>
+<option value="19">Nursing Home</option>
+<option value="20">Maternity Home</option>
+<option value="21">Maternity and Nursing Home</option>
+<option value="25">Warehouse</option>
+<option value="26">National Hospital</option>
+<option value="27">National Super Specialized Hospital</option>
+<option value="28">Zonal Referral Hospital</option>
+<option value="30">Regional Referral Hospital</option>
+<option value="32">District Hospital</option>
+<option value="33">Optical Laboratory</option>
+<option value="34">Optical Manufacturing Factory</option>
+<option value="35">Optical Surfacing Unit</option>
+<option value="36">Supplying and Distribution unit of Optical</option>
+<option value="37">Hospital at Zonal Level</option>
+<option value="38">Hospital at Regional Level</option>
+<option value="39">Hospital at District Level</option>
+<option value="40">Dental Hospital</option>
+<option value="42">Dialysis Clinic</option>
+<option value="43">General Clinic</option>
+<option value="44">Specialized Polyclinic</option>
+<option value="45">Super Specialized Polyclinic</option>
+<option value="47">Comprehensive Dental Clinic</option>
+<option value="48">Mobile Dental clinic</option>
+<option value="49">Level IA2 (Dispensary Laboratory)</option>
+<option value="50">Level IA1 (Health Center Laboratory)</option>
+<option value="51">Level IIA2 (District Laboratory)</option>
+<option value="52">Level IIA1 (Regional Laboratory)</option>
+<option value="53">Level III Multipurpose Health Laboratory</option>
+<option value="54">Level III Single purpose Health Laboratory</option>
+<option value="55">Dental Laboratory</option>
+<option value="57">Prosthetics and Orthotics clinic</option>
+<option value="59">speech and language therapy clinic</option>
+<option value="61">Mobile Radiology and Imaging Centre</option>
+<option value="64">Occupational Therapy Clinic</option>
+<option value="65">Psychiatric Clinic</option>
+<option value="66">Diagnostic Centre</option>
+<option value="67">Specialised Dental Clinic</option>
+<option value="68">Specialised Eye Clinic</option>
+<option value="72">District Vaccine Store</option>
+<option value="73">Specialised Hospital (Level III)</option>
+<option value="74">Specialised Hospital (Level II)</option>
+<option value="75">Specialised Hospital (Level I)</option>
+<option value="76">Aesthetic Clinic (Level III)</option>
+<option value="77">Aesthetic Clinic (Level II)</option>
+<option value="78">Aesthetic Clinic (Level I)</option>
+<option value="79">Health Post</option>
+<option value="80">Consultation Clinic</option>
+<option value="81">Gym</option>
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-ownership_category">
+<label class="control-label" for="ownership_category">Ownership Category</label>
+<div class="kv-plugin-loading loading-ownership_category">&nbsp;</div><select id="ownership_category" class="form-control" name="ownership_category" data-s2-options="s2options_e9bc2761" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+<option value="">--Select--</option>
+<option value="Publ">Public</option>
+<option value="Priv">Private</option>
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-ownership_authority">
+<label class="control-label" for="ownership_authority">Ownership</label>
+<span id="parent-s2-togall-ownership_authority" style="display:none"><span id="s2-togall-ownership_authority" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-ownership_authority">&nbsp;</div><input type="hidden" name="ownership_authority" value=""><select id="ownership_authority" class="form-control" name="ownership_authority[]" multiple size="4" data-krajee-depdrop="depdrop_d0916d56" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-fbo_denomination">
+<label class="control-label" for="fbo_denomination">Denomination</label>
+<span id="parent-s2-togall-fbo_denomination" style="display:none"><span id="s2-togall-fbo_denomination" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-fbo_denomination">&nbsp;</div><input type="hidden" name="fbo_denomination" value=""><select id="fbo_denomination" class="form-control" name="fbo_denomination[]" multiple size="4" data-krajee-depdrop="depdrop_2b83d5cb" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-moh_authority">
+<label class="control-label" for="moh_authority">Regulatory Authority</label>
+<span id="parent-s2-togall-moh_authority" style="display:none"><span id="s2-togall-moh_authority" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-moh_authority">&nbsp;</div><input type="hidden" name="moh_authority" value=""><select id="moh_authority" class="form-control" name="moh_authority[]" multiple size="4" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+<option value="1">DCS</option>
+<option value="2">PHAB</option>
+<option value="3">PHLB</option>
+<option value="4">PHARMACY</option>
+<option value="5">TNMC</option>
+<option value="6">OPTMETRY</option>
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-Services_category">
+<label class="control-label" for="Services_category">Service Offered</label>
+<span id="parent-s2-togall-Services_category" style="display:none"><span id="s2-togall-Services_category" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-Services_category">&nbsp;</div><input type="hidden" name="Services_category" value=""><select id="Services_category" class="form-control" name="Services_category[]" multiple size="4" data-allow-clear="true" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+<option value="1">General Clinical Services</option>
+<option value="2">Malaria Diagnosis and Treatment</option>
+<option value="3">TB Diagnosis, Care and Treatment</option>
+<option value="4">Cardiovascular Care and Treatment</option>
+<option value="5">HIV/AIDS Prevention</option>
+<option value="6">HIV/AIDS Care and Treatment</option>
+<option value="7">Therapeutics</option>
+<option value="8">Prosthetics and Medical Devices</option>
+<option value="9">Health Promotion and Disease Prevention</option>
+<option value="10">Diagnostic Services</option>
+<option value="11">Reproductive and Child Health Care Services</option>
+<option value="12">Growth Monitoring / Nutrition Surveillance</option>
+<option value="13">Oral Health Service (Dental Services)</option>
+<option value="14">ENT Services</option>
+<option value="15">Support Services</option>
+<option value="16">Emergency Preparedness</option>
+<option value="17">Optometry Services</option>
+<option value="18">Radiology Services</option>
+<option value="20">Nursing and Maternity Home Services</option>
+<option value="21">Maternity home</option>
+<option value="22">Nursing Home</option>
+<option value="23">Non-Communicable Diseases Care and Treatment</option>
+<option value="24">NCD Preventive Services</option>
+<option value="25">Mental Health and Substance Abuse Services</option>
+<option value="26">TB and Leprosy Care and Treatment</option>
+<option value="27">Eye Care and Treatment</option>
+<option value="28">School Health Intervention</option>
+<option value="29">Immunology and Serology Histopathology (Tissue Diagnosis) and Cytology</option>
+<option value="30">Mortuary Services </option>
+<option value="31">Vaccination</option>
+<option value="32">Ehealth</option>
+<option value="33">Administration and Support Services</option>
+<option value="34">Technical Services</option>
+<option value="35">Other Services</option>
+<option value="36">Other Services</option>
+<option value="37">Laboratory Service-Parasitology</option>
+<option value="38">Laboratory Service-Microbiology</option>
+<option value="39">Laboratory Service-Serology</option>
+<option value="40">Laboratory Service-Haematology and Blood Transfusion</option>
+<option value="41">Laboratory Service-Clinical Chemistry</option>
+<option value="42">Laboratory Service-Histopathology and Cytology</option>
+<option value="43">Disease Surveillance</option>
+<option value="45">Laboratory Service-TB Laboratory</option>
+<option value="46">Mobile Nursing Service</option>
+<option value="47">Rehabilitation Services</option>
+</select>
+
+<div class="help-block"></div>
+</div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="item form-group">
+                    <div class="form-group field-Services_list">
+<label class="control-label" for="Services_list">Service</label>
+<span id="parent-s2-togall-Services_list" style="display:none"><span id="s2-togall-Services_list" class="s2-togall-button s2-togall-select"><span class="s2-select-label"><i class="far fa-square mr-1 me-1"></i>Select all</span><span class="s2-unselect-label"><i class="far fa-check-square mr-1 me-1"></i>Unselect all</span></span></span><div class="kv-plugin-loading loading-Services_list">&nbsp;</div><input type="hidden" name="Services_list" value=""><select id="Services_list" class="form-control" name="Services_list[]" multiple size="4" data-allow-clear="true" data-krajee-depdrop="depdrop_41fa7c63" data-s2-options="s2options_608c74da" data-krajee-select2="select2_d811419f" style="width: 1px; height: 1px; visibility: hidden;">
+
+</select>
+
+<div class="help-block"></div>
+</div>                </div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-8 d-flex flex-row-reverse">
+                 <a class="btn btn-default" href="/web/index.php?r=portal%2Fadvanced-search">Reset</a>                &nbsp&nbsp&nbsp&nbsp
+                <button type="submit" class="btn btn-info" name="submit_search" value="search" onclick="return loadSearch()">Search</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</form><div id="display_message_data">
+
+</div>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-12 col-sm-12 mt-4 mt-lg-2 text-center">
+                <h3>
+                    &copy;2005 - 2026 Ministry of Health - Tanzania, All
+                    rights reserved.</h3>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer-->
+<!-- Back to top -->
+<a href="#top" id="back-to-top">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+    </svg>
+</a>
+<script src="/web/assets/cd3de045/jquery.js"></script>
+<script src="/web/assets/2574f780/yii.js"></script>
+<script src="/web/assets/64e73924/js/select2.full.min.js"></script>
+<script src="/web/assets/ef002332/js/select2-krajee.min.js"></script>
+<script src="/web/assets/1c833aeb/js/kv-widgets.min.js"></script>
+<script src="/web/assets/5122a91/js/dependent-dropdown.min.js"></script>
+<script src="/web/assets/11555dbb/js/depdrop.min.js"></script>
+<script src="/web/assets/2574f780/yii.activeForm.js"></script>
+<script src="/web/portal/js/popper.min.js"></script>
+<script src="/web/portal/js/bootstrap.min.js"></script>
+<script src="/web/portal/js/custom.js"></script>
+<script src="/web/portal/js/newsticker.js"></script>
+<script src="/web/plugins/newsticker/newsticker.js"></script>
+<script>jQuery(function ($) {
+$(document).ready(function() {
+ 
+    loadSearch();
+                  
+          });
+jQuery&&jQuery.pjax&&(jQuery.pjax.defaults.maxCacheLength=0);
+if (jQuery('#region').data('select2')) { jQuery('#region').select2('destroy'); }
+jQuery.when(jQuery('#region').select2(select2_d811419f)).done(initS2Loading('region','s2options_608c74da'));
+
+if (jQuery('#district').data('depdrop')) { jQuery('#district').depdrop('destroy'); }
+jQuery('#district').depdrop(depdrop_49bad51a);
+
+if (jQuery('#district').data('select2')) { jQuery('#district').select2('destroy'); }
+jQuery.when(jQuery('#district').select2(select2_d811419f)).done(initS2Loading('district','s2options_608c74da'));
+
+initDepdropS2('district','Loading ...');
+if (jQuery('#council').data('depdrop')) { jQuery('#council').depdrop('destroy'); }
+jQuery('#council').depdrop(depdrop_1246ab66);
+
+if (jQuery('#council').data('select2')) { jQuery('#council').select2('destroy'); }
+jQuery.when(jQuery('#council').select2(select2_d811419f)).done(initS2Loading('council','s2options_608c74da'));
+
+initDepdropS2('council','Loading ...');
+if (jQuery('#ward').data('depdrop')) { jQuery('#ward').depdrop('destroy'); }
+jQuery('#ward').depdrop(depdrop_d5af799b);
+
+if (jQuery('#ward').data('select2')) { jQuery('#ward').select2('destroy'); }
+jQuery.when(jQuery('#ward').select2(select2_d811419f)).done(initS2Loading('ward','s2options_608c74da'));
+
+initDepdropS2('ward','Loading ...');
+if (jQuery('#village_mtaa').data('depdrop')) { jQuery('#village_mtaa').depdrop('destroy'); }
+jQuery('#village_mtaa').depdrop(depdrop_d3525c5f);
+
+if (jQuery('#village_mtaa').data('select2')) { jQuery('#village_mtaa').select2('destroy'); }
+jQuery.when(jQuery('#village_mtaa').select2(select2_d811419f)).done(initS2Loading('village_mtaa','s2options_608c74da'));
+
+initDepdropS2('village_mtaa','Loading ...');
+if (jQuery('#facility_type').data('select2')) { jQuery('#facility_type').select2('destroy'); }
+jQuery.when(jQuery('#facility_type').select2(select2_d811419f)).done(initS2Loading('facility_type','s2options_608c74da'));
+
+if (jQuery('#ownership_category').data('select2')) { jQuery('#ownership_category').select2('destroy'); }
+jQuery.when(jQuery('#ownership_category').select2(select2_d811419f)).done(initS2Loading('ownership_category','s2options_e9bc2761'));
+
+if (jQuery('#ownership_authority').data('depdrop')) { jQuery('#ownership_authority').depdrop('destroy'); }
+jQuery('#ownership_authority').depdrop(depdrop_d0916d56);
+
+if (jQuery('#ownership_authority').data('select2')) { jQuery('#ownership_authority').select2('destroy'); }
+jQuery.when(jQuery('#ownership_authority').select2(select2_d811419f)).done(initS2Loading('ownership_authority','s2options_608c74da'));
+
+initDepdropS2('ownership_authority','Loading ...');
+if (jQuery('#fbo_denomination').data('depdrop')) { jQuery('#fbo_denomination').depdrop('destroy'); }
+jQuery('#fbo_denomination').depdrop(depdrop_2b83d5cb);
+
+if (jQuery('#fbo_denomination').data('select2')) { jQuery('#fbo_denomination').select2('destroy'); }
+jQuery.when(jQuery('#fbo_denomination').select2(select2_d811419f)).done(initS2Loading('fbo_denomination','s2options_608c74da'));
+
+initDepdropS2('fbo_denomination','Loading ...');
+if (jQuery('#moh_authority').data('select2')) { jQuery('#moh_authority').select2('destroy'); }
+jQuery.when(jQuery('#moh_authority').select2(select2_d811419f)).done(initS2Loading('moh_authority','s2options_608c74da'));
+
+if (jQuery('#Services_category').data('select2')) { jQuery('#Services_category').select2('destroy'); }
+jQuery.when(jQuery('#Services_category').select2(select2_d811419f)).done(initS2Loading('Services_category','s2options_608c74da'));
+
+if (jQuery('#Services_list').data('depdrop')) { jQuery('#Services_list').depdrop('destroy'); }
+jQuery('#Services_list').depdrop(depdrop_41fa7c63);
+
+if (jQuery('#Services_list').data('select2')) { jQuery('#Services_list').select2('destroy'); }
+jQuery.when(jQuery('#Services_list').select2(select2_d811419f)).done(initS2Loading('Services_list','s2options_608c74da'));
+
+initDepdropS2('Services_list','Loading ...');
+jQuery('#advance_id').yiiActiveForm([], []);
+});</script></body>
+</html>
+
+<script>
+    function getlanguage(data) {
+        language = data;
+        // alert(data);
+        languages = "";
+        //return false;
+        // alert(languages);
+        if (language == languages) {
+            return false;
+        }
+        $.ajax({
+            url: '/web/index.php?r=portal/changelanguage',
+            type: "GET",
+            data: {language: language},
+            success: function (result) {
+                //i=0;
+                //	alert(result)
+                // console.log(result);
+                // if(){
+                location.reload();
+                // }
+
+            },
+        });
+    }
+</script>

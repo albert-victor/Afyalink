@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c2410c"/>
+      <stop offset="45%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg2)"/>
+  <circle cx="200" cy="300" r="280" fill="#fbbf24" opacity="0.25"/>
+  <circle cx="1700" cy="850" r="420" fill="#dc2626" opacity="0.12"/>
+  <g transform="translate(1400,400)" opacity="0.15">
+    <rect x="-80" y="-60" width="160" height="120" rx="12" fill="white"/>
+    <path d="M-40-20 h80 M0-20 v60" stroke="white" stroke-width="12"/>
+  </g>
+  <text x="80" y="980" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="600" opacity="0.95">Pata hospitali na huduma zinazopatikana sasa hivi</text>
+</svg>

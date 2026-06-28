@@ -1,0 +1,245 @@
+<script>
+
+    function loadView(data) {
+        var url = data.value;
+        var medium_spinner = '<div style="font-size: 18px;"><span class="fa fa-spinner fa-2x fa-spin"></span> Please Wait ...</div>';
+        $('#panel-info').html(medium_spinner);
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function (data) {
+                $('#panel-info').show();
+                $('#panel-info').html(data);
+                return false
+            }
+        });
+        return false;
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, user-scalable=0'>
+    <meta content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital" name="description">
+    <meta content="Facility near me" name="hfr">
+    <meta name="keywords" content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital"/>
+        <!-- Title -->
+    <title>HFR-PORTAL</title>
+    <!--Favicon -->
+    <link rel="icon" href="/web/favicon.ico" type="image/x-icon"/>
+    
+<link href="/web/assets/25b17d1a/css/bootstrap.css" rel="stylesheet">
+<link href="/web/assets/5da8052b/css/kv-grid.min.css" rel="stylesheet">
+<link href="/web/assets/6c9d52e2/css/bootstrap-dialog-bs4.min.css" rel="stylesheet">
+<link href="/web/assets/5da8052b/css/jquery.resizableColumns.min.css" rel="stylesheet">
+<link href="/web/assets/889b42b1/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/style.css" rel="stylesheet">
+<link href="/web/portal/css/icons.css" rel="stylesheet">
+<link href="/web/portal/css/animated.css" rel="stylesheet">
+<link href="/web/portal/css/newsticker.css" rel="stylesheet">
+<link href="/web/portal/css/boxed.css" rel="stylesheet">
+<link href="/web/portal/css/custom.css" rel="stylesheet">
+<link href="/web/portal/css/viewinmap.css" rel="stylesheet">
+<script src="/web/assets/6c9d52e2/js/dialog.min.js"></script>
+<script>var krajeeDialogDefaults_0269f7ad = {"alert":{"type":"type-info","title":"Information","buttonLabel":"<span class=\"fas fa-check\"></span> Ok"},"confirm":{"type":"type-warning","title":"Confirmation","btnOKClass":"btn-warning","btnOKLabel":"<span class=\"fas fa-check\"></span> Ok","btnCancelLabel":"<span class=\"fas fa-ban\"></span>  Cancel"},"prompt":{"draggable":false,"title":"Information","buttons":[{"label":"Cancel","icon":"fas fa-ban","cssClass":"btn-outline-secondary"},{"label":"Ok","icon":"fas fa-check","cssClass":"btn-primary"}],"closable":false},"dialog":{"draggable":true,"title":"Information","buttons":[{"label":"Cancel","icon":"fas fa-ban","cssClass":"btn-outline-secondary"},{"label":"Ok","icon":"fas fa-check","cssClass":"btn-primary"}]}};
+var krajeeDialog_ead3f524 = {"id":"w3"};
+var krajeeDialog=new KrajeeDialog(true,krajeeDialog_ead3f524,krajeeDialogDefaults_0269f7ad);</script></head>
+<body class="light-mode">
+<div class="page">
+    <div class="page-main">
+        <div class="horizontal-main hor-menu clearfix">
+            <!-- <div class="app-header header top-header"> c4d2d7-->
+            <div class="container">
+                <div class="d-flex">
+                    <div class="col-12  px-0" style="background-color: #fff;">
+                        <a id="horizontal-nav" class="animated-arrow hor-toggle"></a>
+                        <img src="/web/images/logo.png" width="100%" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <!-- Horizontal-menu -->
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list ">
+                        <li aria-haspopup="false">
+                            <a class="sub-icon active sub-icon" href="/web/index.php?r=portal%2Findex">
+									<i class="pe-7s-home" data-toggle="tooltip" title="pe-7s-home"></i>	Home</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Fadvanced-search">
+							<i class="pe-7s-menu" data-toggle="tooltip" title="pe-7s-menu"></i>
+								Health Facilities</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffaq">
+								<i class="zmdi zmdi-collection-text" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								FAQs</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffeedback">
+								<i class="fa fa-comment" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								Feed Back</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=site%2Findex" target="_blank">Facility Management</a>                        </li>
+
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=portal%2Fdownloadfacilities" target="_blank">Download Operating Facilities</a>                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="app-content page-body">
+            <div class="container">
+                <div class="mt-8">
+                    <div class="card" style="margin-top:20px">
+    <div class="card-header">
+        <h3 class="card-title">DISTRICT HOSPITALS</h3>
+    </div>
+    <div class=" card-body" id="panel-info">
+
+        
+                            <div class="">
+                    <script>
+    function viewinmapclick(){
+            $('#w0').submit();            
+    }
+</script>
+<form id="w1" action="/web/index.php?r=portal%2Fview-inmap" method="post" enctype="multipart/form-data"><div class="form-group field-conditionId">
+
+<input type="hidden" id="conditionId" class="form-control" name="FacilityMap[conditionviewmap]" value="990,1202,1431,3055,3174,4357,4411,4897,5304,5488,6012,6053,6122,6337,7562,7852,7947,7990,8038,8875,9022,10421,10883,11259,13193,16345,16979,17787,18517,21162,21528,21552,21663,23830,24517,25013,25413,196,497,1231,1272,1288,1303,1388,2007,2017,2104,2110,2128,2143,2145,2292,2294,2391,2491,2582,2831,2851,2872,3240,3271,3317,3541,3648,3711,4221,4250,4353,4690,4712,4761,4899,4945,5068,5210,5211,5249,5264,5325,5420,5602,5649,5791,6086,6094,6138,6234,6678,6729,6754,6755,6817,6966,7102,7108,7152,7241,7244,7275,7358,7383,7401,7549,7659,8097,8249,8340,8394,8407,8429,8439,8532,8572,8991,9031,9062,9172,9348,9409,9414,9761,9879,9917,9929,9937,10116,10235,10245,10329,10332,10349,10429,10560,10660,10730,10802,10803,10863,10954,11028,11412,11539,11545,11556,11570,11598,11628,11638,11785,11807,12263,12301,12313,12319,12352,12353,12506,12541,12584,12587,13103,13104,13512,14873,15501,15578,16056,16062,16332,18404,19254,19461,19477,19592,19912,20162,21009,21735,22653,23165,23280,23780,25911" readOnly="readOnly">
+
+<div class="help-block"></div>
+</div><div class="form-group field-titleId">
+
+<input type="hidden" id="titleId" class="form-control" name="FacilityMap[title]" value="DISTRICT HOSPITALS" readOnly="readOnly">
+
+<div class="help-block"></div>
+</div>
+<button type="submit" class="btn btn-info" onclick="viewinmapclick()">View in Map</button></form>                </div>
+                            <div class="dataView" style='overflow-x:scroll;'>
+            <div id="w2" class="grid-view is-bs4 kv-grid-bs4 hide-resize" data-krajee-grid="kvGridInit_3b641ceb" data-krajee-ps="ps_w2_container"><div class="summary">Showing <b>1-20</b> of <b>183</b> items.</div>
+<div id="w2-container" class="kv-grid-container"><table class="kv-grid-table table table-bordered table-striped kv-table-wrap"><thead class="kv-table-header w2">
+<tr><th>#</th><th data-col-seq="1"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=facility_identifier_number" data-sort="facility_identifier_number">Facility Code</a></th><th data-col-seq="2"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=facility_name" data-sort="facility_name">Facility Name</a></th><th data-col-seq="3"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=facility_type" data-sort="facility_type">Facility Type</a></th><th data-col-seq="4"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=facility_type" data-sort="facility_type">Region</a></th><th data-col-seq="5"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=facility_type" data-sort="facility_type">Council</a></th><th data-col-seq="6"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=ownership_category" data-sort="ownership_category">Ownership Category</a></th><th data-col-seq="7"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=ownership_authority" data-sort="ownership_authority">Ownership Authority</a></th><th style="width:200px;" data-col-seq="8"><a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1&amp;sort=operating_status" data-sort="operating_status">Operating Status</a></th><th data-col-seq="9">ACTION</th><th data-col-seq="10"> </th></tr>
+</thead>
+<tbody>
+<tr class="w2" data-key="25911"><td>1</td><td class="w2" data-col-seq="1">124048-0</td><td class="w2" data-col-seq="2">MBUBA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kagera Region</td><td class="w2" data-col-seq="5">Ngara DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=124048-0" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=124048-0" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="25413"><td>2</td><td class="w2" data-col-seq="1">123935-9</td><td class="w2" data-col-seq="2">IFAKARA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Morogoro Region</td><td class="w2" data-col-seq="5">Ifakara TC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123935-9" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123935-9" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="25013"><td>3</td><td class="w2" data-col-seq="1">123818-7</td><td class="w2" data-col-seq="2">MOSHI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kilimanjaro Region</td><td class="w2" data-col-seq="5">Moshi DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123818-7" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123818-7" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="24517"><td>4</td><td class="w2" data-col-seq="1">123644-7</td><td class="w2" data-col-seq="2">DODOMA CITY COUNCIL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Dodoma Region</td><td class="w2" data-col-seq="5">Dodoma CC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123644-7" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123644-7" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="23830"><td>5</td><td class="w2" data-col-seq="1">123381-6</td><td class="w2" data-col-seq="2">BUMBULI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Tanga Region</td><td class="w2" data-col-seq="5">Bumbuli DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123381-6" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123381-6" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="23780"><td>6</td><td class="w2" data-col-seq="1">123363-4</td><td class="w2" data-col-seq="2">MULEBA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kagera Region</td><td class="w2" data-col-seq="5">Muleba DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123363-4" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123363-4" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="23280"><td>7</td><td class="w2" data-col-seq="1">123142-2</td><td class="w2" data-col-seq="2">KIZURIRA NYERERE BUTIAMA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Mara Region</td><td class="w2" data-col-seq="5">Butiama DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123142-2" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123142-2" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="23165"><td>8</td><td class="w2" data-col-seq="1">123119-0</td><td class="w2" data-col-seq="2">SAME</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kilimanjaro Region</td><td class="w2" data-col-seq="5">Same DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=123119-0" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=123119-0" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="22653"><td>9</td><td class="w2" data-col-seq="1">122946-7</td><td class="w2" data-col-seq="2">ITIGI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Singida Region</td><td class="w2" data-col-seq="5">Itigi DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122946-7" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122946-7" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21735"><td>10</td><td class="w2" data-col-seq="1">122621-6</td><td class="w2" data-col-seq="2">KIGOMA/UJIJI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kigoma Region</td><td class="w2" data-col-seq="5">Kigoma Ujiji MC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122621-6" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122621-6" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21663"><td>11</td><td class="w2" data-col-seq="1">122607-5</td><td class="w2" data-col-seq="2">KILINDI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Tanga Region</td><td class="w2" data-col-seq="5">Kilindi DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122607-5" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122607-5" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21552"><td>12</td><td class="w2" data-col-seq="1">122581-2</td><td class="w2" data-col-seq="2">MTWARA MIKINDANI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Mtwara Region</td><td class="w2" data-col-seq="5">Mtwara MC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122581-2" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122581-2" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21528"><td>13</td><td class="w2" data-col-seq="1">122540-8</td><td class="w2" data-col-seq="2">SINGIDA MUNICIPAL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Singida Region</td><td class="w2" data-col-seq="5">Singida MC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122540-8" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122540-8" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21162"><td>14</td><td class="w2" data-col-seq="1">122471-6</td><td class="w2" data-col-seq="2">BUNDA TOWN COUNCIL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Mara Region</td><td class="w2" data-col-seq="5">Bunda TC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122471-6" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122471-6" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="21009"><td>15</td><td class="w2" data-col-seq="1">122434-4</td><td class="w2" data-col-seq="2">MUSOMA MUNICIPAL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Mara Region</td><td class="w2" data-col-seq="5">Musoma MC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=122434-4" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=122434-4" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="20162"><td>16</td><td class="w2" data-col-seq="1">121976-5</td><td class="w2" data-col-seq="2">GEITA TOWN COUNCIL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Geita Region</td><td class="w2" data-col-seq="5">Geita TC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=121976-5" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=121976-5" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="19912"><td>17</td><td class="w2" data-col-seq="1">121885-8</td><td class="w2" data-col-seq="2">SONGEA MUNICIPAL</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Ruvuma Region</td><td class="w2" data-col-seq="5">Songea MC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=121885-8" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=121885-8" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="19592"><td>18</td><td class="w2" data-col-seq="1">121810-6</td><td class="w2" data-col-seq="2">KIGOMA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kigoma Region</td><td class="w2" data-col-seq="5">Kigoma DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=121810-6" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=121810-6" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="19477"><td>19</td><td class="w2" data-col-seq="1">121780-1</td><td class="w2" data-col-seq="2">MISSENYI</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Kagera Region</td><td class="w2" data-col-seq="5">Missenyi DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=121780-1" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=121780-1" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+<tr class="w2" data-key="19461"><td>20</td><td class="w2" data-col-seq="1">121768-6</td><td class="w2" data-col-seq="2">MISUNGWI-ITEJA</td><td class="w2" data-col-seq="3">District Hospital</td><td class="w2" data-col-seq="4">Mwanza Region</td><td class="w2" data-col-seq="5">Misungwi DC</td><td class="w2" data-col-seq="6">Public</td><td class="w2" data-col-seq="7">LGA</td><td class="w2" style="width:200px;" data-col-seq="8">Operating</td><td class="w2" data-col-seq="9"><button type="button" class="btn btn-outline-info" value="/web/index.php?r=portal%2Ffacility-detail&amp;facility_code=121768-6" onclick="loadView(this)"><i class="glyphicon glyphicon-eye-open"></i> </button></td><td class="w2" data-col-seq="10"><a class="btn btn-outline-secondary" href="/web/index.php?r=portal%2Fpdf-facility-detail&amp;facility_code=121768-6" data-pjax="0" target="_blank"><i class="fa fa-file-pdf-o"></i></a></td></tr>
+</tbody></table></div>
+<ul class="pagination"><li class="page-item first disabled"><span class="page-link">First</span></li>
+<li class="page-item prev disabled"><span class="page-link">&laquo;</span></li>
+<li class="page-item active"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=1" data-page="0">1</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=2" data-page="1">2</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=3" data-page="2">3</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=4" data-page="3">4</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=5" data-page="4">5</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=6" data-page="5">6</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=7" data-page="6">7</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=8" data-page="7">8</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=9" data-page="8">9</a></li>
+<li class="page-item"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=10" data-page="9">10</a></li>
+<li class="page-item next"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=2" data-page="1">&raquo;</a></li>
+<li class="page-item last"><a class="page-link" href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH&amp;page=10" data-page="9">Last</a></li></ul></div>        </div>
+    </div>
+</div>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-12 col-sm-12 mt-4 mt-lg-2 text-center">
+                <h3>
+                    &copy;2005 - 2026 Ministry of Health - Tanzania, All
+                    rights reserved.</h3>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer-->
+<!-- Back to top -->
+<a href="#top" id="back-to-top">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+    </svg>
+</a>
+<script src="/web/assets/cd3de045/jquery.js"></script>
+<script src="/web/assets/2574f780/yii.js"></script>
+<script src="/web/assets/2574f780/yii.activeForm.js"></script>
+<script src="/web/assets/2574f780/yii.gridView.js"></script>
+<script src="/web/assets/25b17d1a/js/bootstrap.bundle.js"></script>
+<script src="/web/assets/6c9d52e2/js/bootstrap-dialog.min.js"></script>
+<script src="/web/assets/6c9d52e2/js/dialog-yii.min.js"></script>
+<script src="/web/assets/5da8052b/js/kv-grid-export.min.js"></script>
+<script src="/web/assets/5da8052b/js/jquery.resizableColumns.min.js"></script>
+<script src="/web/portal/js/popper.min.js"></script>
+<script src="/web/portal/js/bootstrap.min.js"></script>
+<script src="/web/portal/js/custom.js"></script>
+<script src="/web/portal/js/newsticker.js"></script>
+<script src="/web/plugins/newsticker/newsticker.js"></script>
+<script>jQuery(function ($) {
+jQuery('#w1').yiiActiveForm([], []);
+krajeeYiiConfirm('krajeeDialog');
+var kvGridExp_cf57775a={"gridId":"w2","action":"/web/index.php?r=gridview%2Fexport%2Fdownload","module":"gridview","encoding":"utf-8","bom":1,"target":"_blank","messages":{"allowPopups":"Disable any popup blockers in your browser to ensure proper download.","confirmDownload":"Ok to proceed?","downloadProgress":"Generating the export file. Please wait...","downloadComplete":"Request submitted! You may safely close this dialog after saving your downloaded file."},"exportConversions":[{"from":"<span class=\"glyphicon glyphicon-ok-sign text-success\" style=\"font-weight:bold\"></span>","to":"Active"},{"from":"<span class=\"glyphicon glyphicon-remove-sign text-danger\" style=\"font-weight:bold\"></span>","to":"Inactive"}],"skipExportElements":[".sr-only",".hide"],"showConfirmAlert":true};
+var kvGridExp_12735912={"filename":"grid-export","showHeader":true,"showPageSummary":true,"showFooter":true};
+var kvGridExp_19b80811={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The HTML export file will be generated for download.","config":{"cssFile":["https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css","https://use.fontawesome.com/releases/v5.3.1/css/all.css"]}};
+var kvGridExp_5a92d530={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The CSV export file will be generated for download.","config":{"colDelimiter":",","rowDelimiter":"\r\n"}};
+var kvGridExp_c04efcb5={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The TEXT export file will be generated for download.","config":{"colDelimiter":"\t","rowDelimiter":"\r\n"}};
+var kvGridExp_e6771fe1={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The EXCEL export file will be generated for download.","config":{"worksheet":"ExportWorksheet","cssFile":""}};
+var kvGridExp_75b05087={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The PDF export file will be generated for download.","config":{"mode":"UTF-8","format":"A4-L","destination":"D","marginTop":20,"marginBottom":20,"cssInline":".kv-wrap{padding:20px}","methods":{"SetHeader":[{"odd":{"L":{"content":"Yii2 Grid Export (PDF)","font-size":8,"color":"#333333"},"C":{"content":"Grid Export","font-size":16,"color":"#333333"},"R":{"content":"Generated: Sun, 28-Jun-2026","font-size":8,"color":"#333333"}},"even":{"L":{"content":"Yii2 Grid Export (PDF)","font-size":8,"color":"#333333"},"C":{"content":"Grid Export","font-size":16,"color":"#333333"},"R":{"content":"Generated: Sun, 28-Jun-2026","font-size":8,"color":"#333333"}}}],"SetFooter":[{"odd":{"L":{"content":"© Krajee Yii2 Extensions","font-size":8,"font-style":"B","color":"#999999"},"R":{"content":"[ {PAGENO} ]","font-size":10,"font-style":"B","font-family":"serif","color":"#333333"},"line":true},"even":{"L":{"content":"© Krajee Yii2 Extensions","font-size":8,"font-style":"B","color":"#999999"},"R":{"content":"[ {PAGENO} ]","font-size":10,"font-style":"B","font-family":"serif","color":"#333333"},"line":true}}]},"options":{"title":"Grid Export","subject":"PDF export generated by kartik-v/yii2-grid extension","keywords":"krajee, grid, export, yii2-grid, pdf"},"contentBefore":"","contentAfter":""}};
+var kvGridExp_31c02c11={"dialogLib":"krajeeDialog","gridOpts":kvGridExp_cf57775a,"genOpts":kvGridExp_12735912,"alertMsg":"The JSON export file will be generated for download.","config":{"colHeads":[],"slugColHeads":false,"jsonReplacer":function(k,v){return typeof(v)==='string'?$.trim(v):v},"indentSpace":4}};
+var kvGridInit_3b641ceb=function(){
+jQuery('#w2 .export-html').gridexport(kvGridExp_19b80811);jQuery('#w2 .export-csv').gridexport(kvGridExp_5a92d530);jQuery('#w2 .export-txt').gridexport(kvGridExp_c04efcb5);jQuery('#w2 .export-xls').gridexport(kvGridExp_e6771fe1);jQuery('#w2 .export-pdf').gridexport(kvGridExp_75b05087);jQuery('#w2 .export-json').gridexport(kvGridExp_31c02c11);jQuery('#w2-container').resizableColumns('destroy').resizableColumns({"store":null,"resizeFromBody":false});
+};
+kvGridInit_3b641ceb();
+jQuery('#w2').yiiGridView({"filterUrl":"\/web\/index.php?r=portal\/quick-search\u0026filters=DH\u0026page=1","filterSelector":"#w2-filters input, #w2-filters select","filterOnFocusOut":true});
+});</script></body>
+</html>
+
+<script>
+    function getlanguage(data) {
+        language = data;
+        // alert(data);
+        languages = "";
+        //return false;
+        // alert(languages);
+        if (language == languages) {
+            return false;
+        }
+        $.ajax({
+            url: '/web/index.php?r=portal/changelanguage',
+            type: "GET",
+            data: {language: language},
+            success: function (result) {
+                //i=0;
+                //	alert(result)
+                // console.log(result);
+                // if(){
+                location.reload();
+                // }
+
+            },
+        });
+    }
+</script>

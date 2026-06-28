@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, user-scalable=0'>
+    <meta content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital" name="description">
+    <meta content="Facility near me" name="hfr">
+    <meta name="keywords" content="Hfr-portal, Health, Facility, Dispensary, clinics, referral hospital"/>
+        <!-- Title -->
+    <title>HFR-PORTAL</title>
+    <!--Favicon -->
+    <link rel="icon" href="/web/favicon.ico" type="image/x-icon"/>
+    
+<link href="/web/assets/889b42b1/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/bootstrap.css" rel="stylesheet">
+<link href="/web/portal/css/style.css" rel="stylesheet">
+<link href="/web/portal/css/icons.css" rel="stylesheet">
+<link href="/web/portal/css/animated.css" rel="stylesheet">
+<link href="/web/portal/css/newsticker.css" rel="stylesheet">
+<link href="/web/portal/css/boxed.css" rel="stylesheet">
+<link href="/web/portal/css/custom.css" rel="stylesheet">
+<link href="/web/portal/css/viewinmap.css" rel="stylesheet"></head>
+<body class="light-mode">
+<div class="page">
+    <div class="page-main">
+        <div class="horizontal-main hor-menu clearfix">
+            <!-- <div class="app-header header top-header"> c4d2d7-->
+            <div class="container">
+                <div class="d-flex">
+                    <div class="col-12  px-0" style="background-color: #fff;">
+                        <a id="horizontal-nav" class="animated-arrow hor-toggle"></a>
+                        <img src="/web/images/logo.png" width="100%" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <!-- Horizontal-menu -->
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list ">
+                        <li aria-haspopup="false">
+                            <a class="sub-icon sub-icon active" href="/web/index.php?r=portal%2Findex">
+									<i class="pe-7s-home" data-toggle="tooltip" title="pe-7s-home"></i>	Home</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Fadvanced-search">
+							<i class="pe-7s-menu" data-toggle="tooltip" title="pe-7s-menu"></i>
+								Health Facilities</a>                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffaq">
+								<i class="zmdi zmdi-collection-text" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								FAQs</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a class="sub-icon" href="/web/index.php?r=portal%2Ffeedback">
+								<i class="fa fa-comment" data-toggle="tooltip" title="zmdi zmdi-collection-text"></i>	
+								Feed Back</a>
+                        </li>
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=site%2Findex" target="_blank">Facility Management</a>                        </li>
+
+                        <li aria-haspopup="false">
+                            <a href="/web/index.php?r=portal%2Fdownloadfacilities" target="_blank">Download Operating Facilities</a>                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="app-content page-body">
+            <div class="container">
+                <div class="mt-8">
+                    <br/>
+<div class="row">
+	<div class="col-xl-12 col-md-12 col-lg-12">
+		<div class="js-conveyor-example">
+			<ul class="news-crypto">
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=ALLs">
+        <i class="fa fa-hospital-o text-default"></i>
+        <span class="font-weight-bold text-default"><label id="count_facility">14,134</label>  All Operating Facilities </span>
+        </a>                </li>
+
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HOSP_P">
+        <i class="fa fa-hospital-o text-default"></i>
+        <span class="font-weight-bold text-default"><label id="count_facility">6</label>  National Super Specialized Hospital </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HZL">
+        <i class="fa fa-hospital-o text-danger"></i>	
+        <span class="font-weight-bold text-danger"><label id="count_zon_lev">14 </label>  Hospital at zonal level </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=zr">
+        <i class="fa fa-hospital-o text-orange"></i>	
+        <span class="font-weight-bold text-orange"><label id="count_zrrh">5 </label>  Zonal Referral Hospitals  </span>
+        </a>                </li>
+
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=RRH">
+        <i class="fa fa-hospital-o text-danger"></i>	
+        <span class="font-weight-bold text-danger"><label id="count_rrh">28 </label>  Regional Referral Hospital </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HR">
+        <i class="fa fa-hospital-o text-default"></i>	
+        <span class="font-weight-bold text-default"><label id="count_reg_lev">52 </label>  Hospital at Regional level </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HC">
+        <i class="fa fa-hospital-o text-success"></i>	
+        <span class="font-weight-bold text-success"><label id="health_centres">1,405</label>   Health Centers</span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=D">
+        <i class="fa fa-hospital-o text-orange"></i>	
+        <span class="font-weight-bold text-orange"><label id="dispensaries">8,908 </label>  Dispensaries  </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=CLIN">
+        <i class="fa fa-hospital-o text-danger"></i>	
+        <span class="font-weight-bold text-danger"><label id="clinics">1,093</label>  Clinics </span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=LABS">
+    <i class="fa fa-hospital-o text-info"></i>	
+    <span class="font-weight-bold text-info"><label id="labs">1,885 <label>  Laboratories</span>
+    </a>                </li>
+
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=NAT">
+            <i class="fa fa-hospital-o text-success"></i>	
+            <span class="font-weight-bold text-success"><label id="count_national">1</label>  National Hospital</span>
+            </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=NURS">
+        <i class="fa fa-hospital-o text-indigo"></i>	
+        <span class="font-weight-bold text-indigo"><label id="nursing_maternity_home">105</label>  Nursing & Maternity Home</span>
+        </a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HOSD">
+<i class="fa fa-hospital-o text-success"></i>	
+<span class="font-weight-bold text-success"><label id="count_dis_lev">190</label>  Hospital at District level</span>
+</a>                </li>
+                <li>
+                    <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH">
+<i class="fa fa-hospital-o text-teal"></i>	
+<span class="font-weight-bold text-teal"><label id="count_dis">183</label>  District Hospitals</span>
+</a>                </li>
+			</ul>
+		</div>
+	</div>
+</div>    <style>
+        .rowFooter {
+            width: 100%;
+            text-align: left;
+            font-size: 10px !important;
+        }
+
+        .blockFooter {
+            display: inline-block !important;
+            height: 40px;
+        }
+
+        .gmnoprint a, .gmnoprint span {
+            display: none;
+        }
+
+        .gmnoprint div {
+            background: none !important;
+        }
+    </style>
+    <div class="row">
+        <div class="col-xl-8 col-lg-12 col-md-12">
+            <div class="card" id="card-Map">
+                <div class="card-header pb-50  border-0">
+                    <div class="rowGeneralAlign">
+                        <div class="blockToAlign" style="width: 100%;">
+                            <h4 class="card-title">
+                                Operating Health Facilities Distribution in Tanzania Mainland                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <button id="backbutton" style="display: none;color:white;" class="btn btn-success pull-right"
+                        type="button">
+                    Return Back</button>
+                <div id="divmap" class="vmap-width"
+                     style="height: 1000px; min-width: 310px; max-width: 800px;">Loading .....
+                </div>
+            </div>
+            <div class="modal fadeCustomer" id="googleMapModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel"></h4>
+                            <button id="print-map"
+                                    class="btn btn-primary map-print">Print</button>
+                            |
+                            <button id="download-map"
+                                    class="btn btn-primary download-map">Downloadjpg
+                            </button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="fade-content" id="download">
+                            <div class="modal-body">
+                                <div id="googleMap"
+                                     style="height: 500px; min-width: 500px; max-width: 1000px; margin: 0 auto">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="rowFooter alert alert-primary">
+                                    <div class="blockFooter" style="width: 110px;">
+                                        <div id="datanew5" style="display:none;">
+                                            <img src="/web/images/svgs/map/new5.png" alt="D"
+                                                 style="height: 40px; width: 40px; margin-left: 0;padding: 0;">Dispensary                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 110px;">
+                                        <div id="datanew3" style="display:none;">
+                                            <img src="/web/images/svgs/map/new3.png" alt="HC"
+                                                 style="height: 40px; width: 40px;">Health Centre                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 90px;">
+                                        <div id="datanew7" style="display:none;">
+                                            <img src="/web/images/svgs/map/new7.png" alt="C"
+                                                 style="height: 40px; width: 40px;">Clinic                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 110px;">
+                                        <div id="datanew6" style="display:none;">
+                                            <img src="/web/images/svgs/map/new6.png" alt="L"
+                                                 style="height: 40px; width: 40px;">Health Lab                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 110px;">
+                                        <div id="datanew4" style="display:none;">
+                                            <img src="/web/images/svgs/map/new4.png" alt="H"
+                                                 style="height: 40px; width: 40px;">Hospital                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 120px;">
+                                        <div id="datanew1" style="display:none;">
+                                            <img src="/web/images/svgs/map/new1.png" alt="M"
+                                                 style="height: 40px; width: 40px;">Maternity Home                                        </div>
+                                    </div>
+                                    <div class="blockFooter" style="width: 80px;">
+                                        <div id="datanew2" style="display:none;">
+                                            <img src="/web/images/svgs/map/new2.png" alt="O"
+                                                 style="height: 40px; width: 40px;">Registered Name                                            Others
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    Close                                    <!--                                    Close-->
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fadeNew" id="details_onGmap" tabindex="-1" role="dialog" aria-labelledby="details_Title">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="details_Title"></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                            <div class='notifications top-right'></div>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="panel-body">
+
+                                <div class="panel-group" id="accordion1">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse1">Basic
+                                                    Information</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <label class="col-md-4">Registered Name                                                        :</label>
+                                                    <div class="col-md-8" id="registered_name"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Facility Type                                                        :</label>
+                                                    <div class="col-md-8" id="facility_type"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Facility Ownership                                                        :</label>
+                                                    <div class="col-md-8" id="facility_ownership"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Facility Location                                                        :</label>
+                                                    <div class="col-md-8" id="facility_location"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse3">Status</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse3" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <label class="col-md-4">Operating Status                                                        :</label>
+                                                    <div class="col-md-8" id="operating_status"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Registration Status                                                        :</label>
+                                                    <div class="col-md-8" id="registration_status"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse2">Services</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-12" id="category"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse4">Contacts</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse4" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <label class="col-md-4">Phone Number                                                        :</label>
+                                                    <div class="col-md-8" id="phone_number"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Email Address                                                        :</label>
+                                                    <div class="col-md-8" id="email_address"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-md-4">Website:</label>
+                                                    <div class="col-md-8" id="website"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1"
+                                                   href="#collapse5">Staff</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse5" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-12" id="staffcadre"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">Close</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!--/.modal-dialog -->
+                </div><!-- end modal -->
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12 col-md-12">
+            <div class="card" id="right1">
+                <div class="card-header">
+                    <div class="card-title">
+                        % Distribution of Operating Facilities by Types</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div id="divbarchart" style="height: 260px; min-width: 310px; max-width: 800px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="right2">
+                <div class="card-header">
+                    <div class="card-title">
+                        % Distribution of Operating Facilities by Ownership</div>
+                </div>
+                <div class="card-body">
+                    <div>
+
+                        <div id="divpiechartownership" style="height: 260px; min-width: 310px; max-width: 800px;"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card crypto-header-section">
+        <div class="card-header">
+            <div class="card-title">Number of Operating Facilities by regions</div>
+        </div>
+        <div class="card-body">
+            <div>
+
+                <div id="divbarchartOperatingByRegion"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/web/js/html2canvas.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDthBSOqnxVmqFnnlkZUUBTl8i3Ne8Z2ak" async defer></script><div class="row">	
+	<div class="col-md-12 col-lg-4">
+		<div class="card overflow-hidden">
+			<div class="card-header">
+				<h3 class="card-title text-black">FACILITY TYPES</h3>
+			</div>
+			<div class="card-body">
+				<ul>
+                    <li class="list-group-item">
+                        <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=NAT">
+							<i class="fa fa-check"></i>	
+							National Hospital
+							</a>                    </li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HOSP_P">
+							<i class="fa fa-check"></i>	
+							National Super Specialized Hospital
+							</a>					</li>
+                    <li class="list-group-item">
+                        <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=zr">
+							<i class="fa fa-check"></i>	
+							Zonal Referral Hospitals
+							</a>                    </li>
+                    <li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HZL">
+							<i class="fa fa-check"></i>	
+							Hospital at zonal level
+							</a>					</li>
+                    <li class="list-group-item">
+                        <a href="/web/index.php?r=portal%2Fquick-search&amp;filters=RRH">
+							<i class="fa fa-check"></i>	
+							Regional Referral Hospital
+							</a>                    </li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HR">
+							<i class="fa fa-check"></i>	
+							Hospitals at Regional Level
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=SSC">
+							<i class="fa fa-check"></i>	
+							Super specialized clinics
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=SC">
+							<i class="fa fa-check"></i>	
+							Specialized clinics
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=SSPC">
+							<i class="fa fa-check"></i>	
+							Specialized and Super specialized Polyclinics
+							</a>					</li>
+					
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HOSD">
+							<i class="fa fa-check"></i>	
+							Hospital at District Level
+							</a>					</li>	
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=DH">
+							<i class="fa fa-check"></i>	
+							District Hospitals
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=HC">
+							<i class="fa fa-check"></i>	
+							Health Centers
+							</a>					</li>
+						
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=D">
+							<i class="fa fa-check"></i>	
+							Dispensaries
+							</a>					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-lg-4">
+		<div class="card overflow-hidden">
+			<div class="card-header">
+				<h3 class="card-title text-black">FACILITY TYPES</h3>
+			</div>
+			<div class="card-body">
+				<ul>
+				<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=NH">
+							<i class="fa fa-check"></i>	
+							Nursing Homes
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=MH">
+							<i class="fa fa-check"></i>	
+							Maternity Homes
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=MNH">
+							<i class="fa fa-check"></i>	
+							Maternity and Nursing Homes
+							</a>					</li>
+				
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=LABS">
+							<i class="fa fa-check"></i>	
+							Health Laboratories
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=health-facility%2Fquick-search&amp;filters=RADIOLOGY">
+							<i class="fa fa-check"></i>	
+							Radiology Services Center
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=PHYSIOTHERAPY">
+							<i class="fa fa-check"></i>	
+							Physiotherapy Clinic
+							</a>					</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title text-black">FACILITY OWNERSHIP</h3>
+			</div>
+			<div class="card-body">
+				<ul><li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=MOH">
+							<i class="fa fa-check"></i>	
+							Ministry of Health (MoH)
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=Military">
+							<i class="fa fa-check"></i>	
+							Military
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=Police">
+							<i class="fa fa-check"></i>	
+							Police
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=LGA">
+							<i class='fa fa-check'></i>	
+							Local Govement Authorities (LGAs)
+							</a>					</li>
+					
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=Prison_p">
+							<i class="fa fa-check"></i>	
+							Prisons 
+							</a>					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 col-lg-4">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title text-black">FACILITY OWNERSHIP</h3>
+			</div>
+			<div class="card-body">
+				<ul>
+					
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=MDAs">
+							<i class='fa fa-check'></i>	
+							Other MDAs
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=FBO">
+							<i class='fa fa-check'></i>	
+							Private - Faith Based (FBO)
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=Priv_profit">
+							<i class='fa fa-check'></i>	
+							Private - For Profit
+							</a>					</li>
+					
+				<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=publ">
+							<i class='fa fa-check'></i>	
+							All Public
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=priv">
+							<i class='fa fa-check'></i>	
+							All Private
+							</a>					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="card overflow-hidden">
+			<div class="card-header">
+				<h3 class="card-title text-black">LATEST UPDATES</h3>
+			</div>
+			<div class="card-body">
+				<ul>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=new_month">
+							<i class='fa fa-check'></i>	
+							New Facilities This Month
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=update_month">
+							<i class='fa fa-check'></i>	
+							Facilities Updates This Month
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=new_last3_month">
+							<i class='fa fa-check'></i>	
+							New Facilities Last 3 Months
+							</a>					</li>	
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=update_last3_month">
+							<i class='fa fa-check'></i>	
+							Updates Last 3 Months
+							</a>					</li>
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=new_year">
+							<i class='fa fa-check'></i>	
+							New Facilities This Year
+							</a>					</li>	
+					<li class="list-group-item">
+						<a href="/web/index.php?r=portal%2Fquick-search&amp;filters=update_year">
+							<i class='fa fa-check'></i>	
+							Facilities Updates This Year
+							</a>					</li>
+				</ul>
+			</div>
+		</div>
+	</div>	
+</div><div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="row mr-0 ml-0">
+			<div class="col-xl-1 col-lg-6 col-sm-6 pr-0 pl-0 border-right " id="visitor">
+					<div class="card-body text-center">
+						<p class="mb-1 text-black">VISITORS:</p>
+					</div>
+				</div>
+				<div class="col-xl-1 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">Online</p>
+						<h2 class="mb-1 font-weight-bold text-success">10</h2>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">Today</p>
+						<h2 class="mb-1 font-weight-bold text-default">258</h2>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">Yesterday</p>
+						<h2 class="mb-1 font-weight-bold text-warning">541</h2>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">Date for maximum</p>
+						<h2 class="mb-1 font-weight-bold text-teal">24.06.2026</h2>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">Maximum</p>
+						<h2 class="mb-1 font-weight-bold text-teal">1,448</h2>
+					</div>
+				</div> 
+				<div class="col-xl-2 col-lg-6 col-sm-6 pr-0 pl-0 border-right">
+					<div class="card-body text-center">
+						<p class="mb-1">All days</p>
+						<h2 class="mb-1 font-weight-bold text-orange">466,132</h2>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+</div>
+<!--End row-->                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-12 col-sm-12 mt-4 mt-lg-2 text-center">
+                <h3>
+                    &copy;2005 - 2026 Ministry of Health - Tanzania, All
+                    rights reserved.</h3>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer-->
+<!-- Back to top -->
+<a href="#top" id="back-to-top">
+    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+    </svg>
+</a>
+<script src="/web/js/special/mapdata_countries_tz_tz-all.js"></script>
+<script src="/web/js/special/maps_highmaps.js"></script>
+<script src="/web/js/special/maps_modules_exporting.js"></script>
+<script src="/web/js/special/maps_modules_offline-exporting.js"></script>
+<script src="/web/assets/cd3de045/jquery.js"></script>
+<script src="/web/js/special/map_view.js"></script>
+<script src="/web/js/special/highcharts.js"></script>
+<script src="/web/assets/2574f780/yii.js"></script>
+<script src="/web/portal/js/popper.min.js"></script>
+<script src="/web/portal/js/bootstrap.min.js"></script>
+<script src="/web/portal/js/custom.js"></script>
+<script src="/web/portal/js/newsticker.js"></script>
+<script src="/web/plugins/newsticker/newsticker.js"></script></body>
+</html>
+
+<script>
+    function getlanguage(data) {
+        language = data;
+        // alert(data);
+        languages = "";
+        //return false;
+        // alert(languages);
+        if (language == languages) {
+            return false;
+        }
+        $.ajax({
+            url: '/web/index.php?r=portal/changelanguage',
+            type: "GET",
+            data: {language: language},
+            success: function (result) {
+                //i=0;
+                //	alert(result)
+                // console.log(result);
+                // if(){
+                location.reload();
+                // }
+
+            },
+        });
+    }
+</script>

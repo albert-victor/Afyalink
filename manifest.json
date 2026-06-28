@@ -1,0 +1,19 @@
+{
+    "name": "AfyaLink – Hospital Service Finder",
+    "short_name": "AfyaLink",
+    "description": "Pata hospitali na huduma zinazopatikana sasa hivi Tanzania",
+    "start_url": "./login.php",
+    "display": "standalone",
+    "background_color": "#fff7ed",
+    "theme_color": "#ea580c",
+    "orientation": "portrait-primary",
+    "lang": "sw",
+    "icons": [
+        {
+            "src": "assets/icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

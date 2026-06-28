@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d9488"/>
+      <stop offset="50%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#0369a1"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="70%" cy="30%" r="50%">
+      <stop offset="0%" style="stop-color:#5eead4;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#0d9488;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg1)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <circle cx="300" cy="800" r="400" fill="#14b8a6" opacity="0.15"/>
+  <circle cx="1600" cy="200" r="350" fill="#22d3ee" opacity="0.2"/>
+  <g transform="translate(960,540)" opacity="0.12">
+    <path d="M0-120 L100 0 L0 80 L-100 0 Z" fill="white"/>
+    <rect x="-20" y="80" width="40" height="100" fill="white"/>
+  </g>
+  <text x="80" y="980" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="600" opacity="0.9">AfyaLink  Huduma za Afya Tanzania</text>
+</svg>

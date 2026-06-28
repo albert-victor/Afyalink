@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#047857"/>
+      <stop offset="100%" style="stop-color:#065f46"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg3)"/>
+  <ellipse cx="960" cy="600" rx="700" ry="400" fill="#10b981" opacity="0.2"/>
+  <circle cx="400" cy="200" r="200" fill="#34d399" opacity="0.3"/>
+  <g transform="translate(500,650)" opacity="0.18">
+    <circle cx="0" cy="0" r="90" fill="none" stroke="white" stroke-width="8"/>
+    <path d="M-50 0 L50 0 M0 -50 L0 50" stroke="white" stroke-width="10"/>
+  </g>
+  <text x="80" y="980" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="600" opacity="0.9">Dar · Pwani · Morogoro · Iringa</text>
+</svg>
