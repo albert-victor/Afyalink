@@ -141,7 +141,7 @@
                 const data = await res.json();
 
                 if (data.success) {
-                    window.location.href = 'admin/dashboard.php';
+                    window.location.href = '/admin/dashboard.php';
                     return;
                 }
 

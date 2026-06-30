@@ -1,8 +1,9 @@
-const CACHE_NAME = 'afyalink-v7';
+const CACHE_NAME = 'afyalink-v10';
 const STATIC_ASSETS = [
     './',
     './index.php',
     './login.php',
+    './sw.js',
     './assets/css/app.css',
     './assets/css/login.css',
     './assets/js/app.js',
@@ -13,15 +14,40 @@ const STATIC_ASSETS = [
     './assets/images/slide-2.svg',
     './assets/images/slide-3.svg',
     './assets/images/slide-4.svg',
+    './assets/vendor/fontawesome/css/all.min.css',
+    './assets/vendor/fontawesome/webfonts/fa-solid-900.woff2',
+    './assets/vendor/fontawesome/webfonts/fa-regular-400.woff2',
+    './assets/vendor/fontawesome/webfonts/fa-brands-400.woff2',
+    './assets/vendor/fontawesome/webfonts/fa-v4compatibility.woff2',
+    './assets/vendor/fonts/app.css',
+    './assets/vendor/fonts/login.css',
+    './assets/vendor/fonts/admin.css',
     './manifest.json',
-    './admin/dashboard.php',
-    './admin/admin.js',
     './assets/css/admin.css',
+    './admin/admin.js',
 ];
+
+// Font files referenced by local Google Fonts CSS (cached on first load via fetch handler)
+const FONT_FILES_GLOB = './assets/vendor/fonts/files/';
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+        caches.open(CACHE_NAME).then(async (cache) => {
+            await cache.addAll(STATIC_ASSETS);
+            // Cache font woff2 files if manifest exists
+            try {
+                const res = await fetch('./assets/vendor/manifest.json');
+                if (res.ok) {
+                    const manifest = await res.json();
+                    const fontFiles = (manifest.files || []).filter((f) => f.includes('/fonts/files/'));
+                    await Promise.all(
+                        fontFiles.map((f) => cache.add('./' + f.replace(/^\//, '')).catch(() => {}))
+                    );
+                }
+            } catch (e) {
+                /* manifest optional until download script runs */
+            }
+        })
     );
     self.skipWaiting();
 });
@@ -38,13 +64,32 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
 
+    // Admin pages need live session – never serve from cache
+    if (url.pathname.includes('/admin/')) {
+        event.respondWith(fetch(event.request));
+        return;
+    }
+
     if (url.pathname.includes('/api/')) {
         event.respondWith(networkFirstApi(event.request));
         return;
     }
 
     event.respondWith(
-        caches.match(event.request).then((cached) => cached || fetch(event.request))
+        caches.match(event.request, { ignoreSearch: true }).then((cached) => {
+            if (cached) {
+                return cached;
+            }
+            return fetch(event.request)
+                .then((response) => {
+                    if (response.ok && event.request.method === 'GET') {
+                        const copy = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+                    }
+                    return response;
+                })
+                .catch(() => cached);
+        })
     );
 });
 

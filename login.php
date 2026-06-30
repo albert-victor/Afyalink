@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/config/env.php';
+require_once __DIR__ . '/config/vendor_assets.php';
 require_once __DIR__ . '/admin/auth.php';
 
 if (isAdminLoggedIn()) {
@@ -35,10 +36,7 @@ foreach ($photoCandidates as $name) {
     <meta name="theme-color" content="#1a6b5c">
     <title data-i18n="login_title">Ingia – AfyaLink</title>
     <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <?php renderVendorStyles('', 'login'); ?>
     <link rel="stylesheet" href="assets/css/login.css?v=6">
 </head>
 <body class="login-page">

@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/config/env.php';
+require_once __DIR__ . '/config/vendor_assets.php';
 
 $config = require __DIR__ . '/config/config.php';
 date_default_timezone_set($config['timezone']);
@@ -21,11 +22,8 @@ $disclaimerEn = $config['disclaimer']['en'];
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/app.css?v=8">
+    <?php renderVendorStyles('', 'app'); ?>
+    <link rel="stylesheet" href="assets/css/app.css?v=9">
     <script>
         (function () {
             var t = localStorage.getItem('afyalink_theme');
@@ -302,7 +300,7 @@ $disclaimerEn = $config['disclaimer']['en'];
     </footer>
 
     <script src="assets/js/offline.js" defer></script>
-    <script src="assets/js/app.js?v=7" defer></script>
+    <script src="assets/js/app.js?v=8" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

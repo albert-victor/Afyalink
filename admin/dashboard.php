@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/auth.php';
+require_once dirname(__DIR__) . '/config/vendor_assets.php';
 
 if (!isAdminLoggedIn()) {
     header('Location: ../login.php');
@@ -17,8 +18,7 @@ $config = require dirname(__DIR__) . '/config/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard – AfyaLink</title>
     <link rel="icon" type="image/svg+xml" href="../assets/icons/icon.svg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <?php renderVendorStyles('../', 'admin'); ?>
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>

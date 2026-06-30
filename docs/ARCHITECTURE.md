@@ -60,7 +60,7 @@
 | `hospitals` | Hospitali kutoka MOH HFR – jina, code, simu, anuani, aina |
 | `service_types` | Aina za huduma (maternity, lab, emergency, nk.) |
 | `hospital_services` | Huduma gani hospitali inatoa |
-| `service_schedules` | Ratiba ya siku/muda (Mon–Sun, open/close) |
+| `service_schedules` | Ratiba ya wiki kwa huduma/wataalamu (saa za kufungua/kufunga) |
 | `service_status_log` | **Updates za muda halisi** kutoka admin |
 
 ---

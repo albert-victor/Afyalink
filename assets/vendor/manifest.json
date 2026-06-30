@@ -1,0 +1,23 @@
+{
+    "generated_at": "2026-06-28T17:00:11+02:00",
+    "fontawesome_version": "6.5.1",
+    "files": [
+        "assets/vendor/fontawesome/css/all.min.css",
+        "assets/vendor/fontawesome/webfonts/fa-solid-900.woff2",
+        "assets/vendor/fontawesome/webfonts/fa-regular-400.woff2",
+        "assets/vendor/fontawesome/webfonts/fa-brands-400.woff2",
+        "assets/vendor/fontawesome/webfonts/fa-v4compatibility.woff2",
+        "assets/vendor/fonts/files/rP2Wp2ywxg089UriCZaSExdy3sGt9zz86GPwyKK58VXh.woff2",
+        "assets/vendor/fonts/files/rP2Wp2ywxg089UriCZaSExdy3sGt9zz86GPwyKy58Q.woff2",
+        "assets/vendor/fonts/files/rP2Hp2ywxg089UriCZ2IHSeH.woff2",
+        "assets/vendor/fonts/files/rP2Hp2ywxg089UriCZOIHQ.woff2",
+        "assets/vendor/fonts/files/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxCBTeO-U.woff2",
+        "assets/vendor/fonts/files/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxCFTeO-U.woff2",
+        "assets/vendor/fonts/files/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeA.woff2",
+        "assets/vendor/fonts/files/QGYvz_MVcBeNP4NJuktqQ4E.woff2",
+        "assets/vendor/fonts/files/QGYvz_MVcBeNP4NJtEtq.woff2",
+        "assets/vendor/fonts/app.css",
+        "assets/vendor/fonts/login.css",
+        "assets/vendor/fonts/admin.css"
+    ]
+}

@@ -71,6 +71,9 @@
             label_hfr: 'Nambari HFR',
             label_status: 'Hali',
             min_wait: 'dak',
+            schedule_today: 'Leo',
+            schedule_closed_today: 'Imefungwa leo',
+            specialist_clinic: 'Kliniki ya mtaalamu',
         },
         en: {
             tagline: 'Find hospitals and services available right now',
@@ -131,8 +134,16 @@
             label_hfr: 'HFR Code',
             label_status: 'Status',
             min_wait: 'min',
+            schedule_today: 'Today',
+            schedule_closed_today: 'Closed today',
+            specialist_clinic: 'Specialist clinic',
         },
     };
+
+    const SPECIALIST_CODES = new Set([
+        'surgery', 'cardiology', 'dialysis', 'dental', 'optical',
+        'physiotherapy', 'mental', 'pediatrics', 'hiv', 'tb', 'malaria', 'maternity',
+    ]);
 
     const SERVICE_ICONS = {
         emergency: 'fa-truck-medical',
@@ -480,6 +491,23 @@
 
     function statusLabel(status) {
         return t(status) || status;
+    }
+
+    function formatScheduleTime(value) {
+        return String(value || '').slice(0, 5);
+    }
+
+    function formatServiceSchedule(schedule) {
+        if (!Array.isArray(schedule) || !schedule.length) return '';
+        const today = new Date().getDay();
+        const slot = schedule.find((s) => parseInt(s.day_of_week, 10) === today);
+        if (!slot) return '';
+        if (slot.is_closed) return t('schedule_closed_today');
+        return `${t('schedule_today')}: ${formatScheduleTime(slot.open_time)} – ${formatScheduleTime(slot.close_time)}`;
+    }
+
+    function isSpecialistService(service) {
+        return service.category === 'specialist' || SPECIALIST_CODES.has(service.code);
     }
 
     function facilityLabel(type) {
@@ -872,13 +900,18 @@
                 const sname = lang === 'sw' ? s.name_sw : s.name;
                 const note = lang === 'sw' ? (s.notes_sw || s.notes) : (s.notes || s.notes_sw);
                 const icon = serviceIcon(s.code);
+                const scheduleText = formatServiceSchedule(s.schedule);
+                const specialistBadge = isSpecialistService(s)
+                    ? `<span class="specialist-badge">${t('specialist_clinic')}</span>`
+                    : '';
                 const wait = s.wait_minutes ? `<span class="wait-badge"><i class="fas fa-hourglass-half"></i> ~${s.wait_minutes} ${t('min_wait')}</span>` : '';
                 return `
                     <div class="service-item" style="animation-delay:${Math.min(idx * 35, 350)}ms">
                         <div class="service-item-left">
                             <div class="service-item-icon"><i class="fas ${icon}"></i></div>
                             <div>
-                                <div class="service-item-name">${escapeHtml(sname)}</div>
+                                <div class="service-item-name">${escapeHtml(sname)}${specialistBadge}</div>
+                                ${scheduleText ? `<div class="service-item-schedule"><i class="fas fa-clock" aria-hidden="true"></i> ${escapeHtml(scheduleText)}</div>` : ''}
                                 ${note ? `<div class="service-item-note">${escapeHtml(note)}</div>` : ''}
                             </div>
                         </div>

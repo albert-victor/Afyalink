@@ -44,9 +44,10 @@ http://localhost/Afyalink/
 
 | Feature | Description |
 |---------|-------------|
-| **Real-time availability** | Shows which services are open *now* based on schedules + status |
-| **3 regions** | Dar es Salaam, Pwani, Morogoro with 12 hospitals |
-| **15 service types** | Emergency, maternity, lab, X-ray, pharmacy, etc. |
+| **Real-time availability** | Shows which services are open *now* based on schedules + live status |
+| **Specialist schedules** | Daily hours per clinic (e.g. dental 09:00–20:00) with open/closed/limited status |
+| **5 regions** | Dar es Salaam, Pwani, Morogoro, Iringa, Mwanza – 448 hospitals |
+| **20 service types** | Emergency, maternity, lab, dental, cardiology, surgery, etc. |
 | **Offline-first** | Service Worker + IndexedDB cache – works without internet |
 | **AI assistant** | OpenRouter-powered helper (finds hospitals, never diagnoses) |
 | **Swahili + English** | Bilingual UI |
